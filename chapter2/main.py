@@ -38,7 +38,7 @@ def load_xray_data(data_dir):
 
 
 # 加载数据集
-data_dir = "./ChestXRay2017/chest_xray/train"
+data_dir = "ChestXRay2017/chest_xray/train"
 X, y = load_xray_data(data_dir)
 
 # 处理数据不均衡问题
@@ -61,8 +61,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 def train_model(model, X_train, y_train, X_test, y_test):
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
-    y_score = model.decision_function(X_test) if hasattr(model, 'decision_function') else model.predict_proba(X_test)[:,
-                                                                                          1]
+    y_score = model.decision_function(X_test) if hasattr(model, 'decision_function') else model.predict_proba(X_test)[:,1]
     accuracy = accuracy_score(y_test, y_pred)
     f1 = f1_score(y_test, y_pred)
     print(f"{model.__class__.__name__} Accuracy: {accuracy:.4f}, F1 Score: {f1:.4f}")

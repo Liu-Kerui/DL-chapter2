@@ -44,7 +44,7 @@ class CNN(nn.Module):
         )
         self.conv2 = nn.Sequential(  # ???
             # line 1 : convolution function, patch 5*5 , 32 in channels ;64 out channels; padding style is same; stride is 1
-            # line 2 : choosing your activation funciont
+            # line 2 : choosing your activation function
             # line 3 : pooling operation function.
             nn.Conv2d(
                 in_channels=32,
